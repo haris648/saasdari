@@ -1,0 +1,855 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Saas Daari Homepage</title>
+<meta name="description" content="Saas Daari — innovating agriculture for a sustainable future. Free-range poultry, premium dates and farm technology from Abu Dhabi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Reem+Kufi:wght@400;600&display=swap">
+<style>
+/* Layout concept: one continuous flight from desert to table — full-bleed 3D scenes pinned between calm editorial bands.
+   Deliberate single look (brand site): sand ground, Saas Daari teal as the lead, Daarzood purple only where the shop lives. */
+:root{
+  --ink:#10291F;       /* deep field green, text + dark bands */
+  --ink-2:#1A3B30;
+  --teal:#0B6E5E;      /* Saas Daari brand teal */
+  --teal-2:#0F8A73;
+  --leaf:#A3C45E;      /* young crop */
+  --sand:#EEE6D3;      /* page ground */
+  --sand-2:#E3D5B6;
+  --dune:#C29F66;
+  --date:#8B5A2B;      /* date brown */
+  --gold:#CDA05A;
+  --dz:#6B2380;        /* Daarzood purple, used sparingly */
+  --dz-2:#8C3AA6;
+  --milk:#FAF7EF;
+  --muted:#5F6B5F;
+  --line:rgba(16,41,31,.14);
+  --sky-top:#EBD7B0; --sky-bot:#E9CFA0;
+
+  --f-display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-ar:"Reem Kufi","Noto Kufi Arabic","Geeza Pro","Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+
+  --gut:clamp(16px,4vw,56px);
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{background:var(--sand);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%}
+.wrap{padding-inline:var(--gut)}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font:500 .74rem/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin:0 0 1.2rem;display:flex;gap:.6rem;align-items:center}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+[lang=ar]{font-family:var(--f-ar)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+h2{font-size:clamp(2.2rem,5.2vw,4.8rem);line-height:.95;font-weight:700;font-variation-settings:"wdth" 82,"opsz" 96;letter-spacing:-.025em}
+h3{font-size:1.5rem;line-height:1.1;font-weight:650;font-variation-settings:"wdth" 88;letter-spacing:-.01em}
+p{margin:0}
+:focus-visible{outline:2px solid var(--teal-2);outline-offset:3px;border-radius:4px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;border-radius:999px;font:600 .92rem/1 var(--f-body);text-decoration:none;transition:transform .4s var(--ease),background .3s,color .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn .arr{transition:transform .4s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-teal{background:var(--teal);color:var(--milk)}
+.btn-teal:hover{background:var(--ink)}
+.btn-ghost{border:1px solid rgba(16,41,31,.35);color:var(--ink);background:rgba(250,247,239,.35);backdrop-filter:blur(6px)}
+.btn-dz{background:var(--dz);color:#fff}
+.btn-dz:hover{background:var(--dz-2)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:calc(14px + env(safe-area-inset-top,0px)) var(--gut) 14px;transition:background .4s,box-shadow .4s}
+.nav.solid{background:rgba(238,230,211,.82);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1;color:var(--teal)}
+.brand-ar{font:600 1.35rem/1 var(--f-ar);letter-spacing:.02em}
+.brand-en{font:800 .95rem/1 var(--f-display);font-style:italic;letter-spacing:.08em;font-variation-settings:"wdth" 90;margin-top:.2rem}
+.links{display:flex;gap:1.8rem}
+.links a{font:500 .9rem/1 var(--f-body);text-decoration:none;position:relative;padding:.4rem 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-right{display:flex;align-items:center;gap:1.1rem}
+.phone{font-size:.82rem;letter-spacing:.06em;color:var(--teal);font-weight:500}
+.lang{font:600 1rem/1 var(--f-ar);text-decoration:none}
+.nav .btn{padding:.7rem 1.1rem;font-size:.85rem}
+
+/* hero */
+.hero{position:relative;height:360vh}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.sky{position:absolute;inset:0;background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-bot) 58%,var(--sky-bot) 100%)}
+.no-gl .sky{background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-bot) 50%,var(--dune) 51%,#b88f55 100%)}
+#terrain{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.18;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .4  0 0 0 0 .3  0 0 0 0 .2  0 0 0 .55 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>")}
+.hero-copy{position:absolute;left:0;right:0;top:clamp(96px,15vh,160px);max-width:1100px}
+.hero-title{font-size:clamp(2.7rem,6.1vw,6.2rem);line-height:.92;font-weight:760;font-variation-settings:"wdth" 78,"opsz" 96;letter-spacing:-.035em;max-width:13ch}
+.hero-title em{font-style:normal;color:var(--teal)}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em;margin-bottom:-.06em}
+.wi{display:inline-block}
+.hero-ar{text-align:left;font-size:clamp(1.1rem,2vw,1.6rem);margin-top:1rem;color:var(--teal);opacity:.9}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.stages{position:absolute;left:0;right:0;bottom:clamp(20px,5vh,48px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2.5vw,36px)}
+.stage{padding-top:1rem;border-top:1px solid rgba(250,247,239,.45);color:var(--milk);opacity:.5;transition:opacity .6s var(--ease),transform .6s var(--ease);transform:translateY(6px);text-shadow:0 1px 18px rgba(16,41,31,.35);min-width:0}
+.stage.is-active{opacity:1;transform:none}
+.stage-k{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.stage strong{display:block;font:700 1.9rem/1.05 var(--f-display);font-variation-settings:"wdth" 80;margin:.35rem 0 .4rem}
+.stage p{font-size:.95rem;line-height:1.45;max-width:34ch}
+.stage-bar{position:absolute;left:var(--gut);right:var(--gut);top:0;height:1px;overflow:hidden}
+.stage-bar i{display:block;height:2px;margin-top:-.5px;background:var(--milk);transform-origin:left;transform:scaleX(0)}
+.scroll-cue{position:absolute;right:var(--gut);top:50%;writing-mode:vertical-rl;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.6}
+
+/* marquee */
+.marquee{background:var(--teal);color:var(--milk);overflow:hidden;padding-block:1.1rem;white-space:nowrap}
+.mq-track{display:inline-flex;gap:2.4rem;animation:mq 38s linear infinite;padding-left:2.4rem}
+.mq-track span{font:600 1.35rem/1 var(--f-display);font-variation-settings:"wdth" 85;display:inline-flex;align-items:center;gap:2.4rem}
+.mq-track span[lang=ar]{font:600 1.35rem/1 var(--f-ar)}
+.mq-track i{width:8px;height:8px;border-radius:50%;background:var(--leaf);display:inline-block}
+.mq-track i.dz{background:#C99BDB}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* promise */
+.promise{padding-block:clamp(90px,14vw,190px) clamp(70px,10vw,140px)}
+.promise-quote{font:600 clamp(1.8rem,4.3vw,3.9rem)/1.08 var(--f-display);font-variation-settings:"wdth" 86,"opsz" 72;letter-spacing:-.02em;max-width:24ch;text-wrap:pretty}
+.promise-quote .wi{color:var(--ink)}
+.promise-src{margin-top:1.4rem;font:500 .8rem/1.4 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.facts{margin-top:clamp(56px,8vw,110px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.fact{padding:1.8rem 1.5rem 0 0;min-width:0}
+.fact+.fact{padding-left:1.5rem;border-left:1px solid var(--line)}
+.fact b{display:block;font:700 clamp(3rem,7vw,6rem)/.9 var(--f-display);font-variation-settings:"wdth" 75;letter-spacing:-.04em;color:var(--teal);font-variant-numeric:tabular-nums}
+.fact b small{font-size:.4em;letter-spacing:0;margin-left:.1em}
+.fact span{display:block;margin-top:.7rem;max-width:26ch;color:var(--muted)}
+
+/* journey */
+.journey{background:var(--milk);overflow:hidden}
+.journey-pin{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(70px,9vh,110px)}
+.journey-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(28px,5vh,56px)}
+.journey-head p.lead{max-width:38ch;color:var(--muted)}
+.journey-track{display:flex;gap:clamp(16px,2vw,28px);padding-inline:var(--gut);width:max-content}
+.jp{width:min(80vw,470px);flex:0 0 auto;background:var(--sand);border-radius:22px;padding:clamp(22px,2.5vw,34px);display:flex;flex-direction:column;gap:.6rem;position:relative}
+.jp svg{width:100%;height:auto;aspect-ratio:3/2;color:var(--teal);margin-bottom:.6rem;background:var(--sand-2);border-radius:14px}
+.jp-top{display:flex;justify-content:space-between;align-items:baseline}
+.jp-n{font-size:.8rem;color:var(--muted);letter-spacing:.1em}
+.jp-ar{color:var(--teal);font-size:1rem}
+.jp p.txt{color:var(--muted);font-size:1rem}
+.chip{align-self:flex-start;margin-top:auto;padding:.45rem .8rem;border-radius:999px;border:1px solid var(--line);font:500 .74rem/1.2 var(--f-mono);letter-spacing:.04em;color:var(--ink)}
+.jp.end{background:var(--ink);color:var(--milk)}
+.jp.end svg{background:var(--ink-2);color:var(--leaf)}
+.jp.end p.txt,.jp.end .jp-n{color:rgba(250,247,239,.7)}
+.jp.end .jp-ar{color:var(--leaf)}
+.jp.end .chip{border-color:rgba(250,247,239,.25);color:var(--milk)}
+
+/* brands */
+.brands{padding-block:clamp(90px,12vw,160px)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,64px)}
+.sec-head p.lead{max-width:40ch;color:var(--muted)}
+.brand-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(250px,auto);gap:clamp(12px,1.4vw,20px);perspective:1200px}
+.bcard{position:relative;border-radius:24px;padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:.5rem;text-decoration:none;overflow:hidden;transform-style:preserve-3d;will-change:transform;min-width:0}
+.bcard svg{position:absolute;right:-6%;top:-4%;width:52%;max-width:260px;opacity:.9;pointer-events:none}
+.bcard .tag{align-self:flex-start;font:500 .7rem/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;border-radius:999px;background:rgba(255,255,255,.16);margin-bottom:auto}
+.bcard h3{font-size:clamp(1.5rem,2.3vw,2.2rem);margin-top:2.5rem;position:relative}
+.bcard p{position:relative;max-width:34ch}
+.bcard .b-ar{font-size:1.05rem;opacity:.85}
+.bcard-cta{margin-top:.8rem;font-weight:600;display:inline-flex;gap:.5rem;align-items:center}
+.b-dz{grid-column:span 2;grid-row:span 2;background:radial-gradient(120% 90% at 85% 0%,#8C3AA6 0%,var(--dz) 45%,#4A165A 100%);color:#fff}
+.b-dz svg{width:62%;max-width:420px;right:-4%;top:4%;color:#E3C4EE}
+.b-dz h3{font-size:clamp(2rem,3.8vw,3.6rem);line-height:.95}
+.b-date{grid-column:span 2;background:linear-gradient(135deg,#D9B377,var(--gold) 40%,var(--date));color:#2B1A0B}
+.b-date svg{color:#5A3717;width:40%}
+.b-date .tag{background:rgba(43,26,11,.12)}
+.b-dairy{background:#DCE8EC;color:#1D3A45}
+.b-dairy svg{color:#5B8FA3}
+.b-dairy .tag,.b-prod .tag{background:rgba(16,41,31,.08)}
+.b-prod{background:#CFE0B3;color:var(--ink)}
+.b-prod svg{color:var(--teal)}
+.b-dairy h3,.b-prod h3{font-size:1.5rem}
+
+/* tech */
+.tech{position:relative;height:340vh;background:var(--ink);color:var(--milk)}
+.tech-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+#house{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tech-stick::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(16,41,31,.88) 0%,rgba(16,41,31,.55) 32%,transparent 58%)}
+@media (max-width:820px){.tech-stick::before{background:linear-gradient(180deg,rgba(16,41,31,.92) 0%,rgba(16,41,31,.6) 38%,transparent 60%)}}
+.tech-copy{position:absolute;top:clamp(90px,14vh,150px);left:0;max-width:560px;z-index:2}
+.tech-copy .eyebrow{color:var(--leaf)}
+.tech-copy p.lead{margin-top:1.1rem;color:rgba(250,247,239,.75);max-width:40ch}
+.tsteps{list-style:none;margin:1.8rem 0 0;padding:0;display:flex;gap:.45rem;flex-wrap:wrap}
+.tsteps li{font:500 .74rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:.55rem .75rem;border-radius:999px;border:1px solid rgba(250,247,239,.2);color:rgba(250,247,239,.55);transition:all .5s var(--ease)}
+.tsteps li.on{background:var(--leaf);border-color:var(--leaf);color:var(--ink)}
+.hs{position:absolute;left:0;top:0;z-index:3;pointer-events:none;opacity:0;transition:opacity .6s var(--ease)}
+.hs.on{opacity:1}
+.hs-dot{position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 6px rgba(163,196,94,.25)}
+.hs-dot::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--leaf);animation:ping 2.2s var(--ease) infinite}
+@keyframes ping{from{transform:scale(.6);opacity:1}to{transform:scale(2.2);opacity:0}}
+.hs-card{position:absolute;left:18px;top:-16px;width:230px;padding:.8rem .95rem;border-radius:14px;background:rgba(16,41,31,.78);backdrop-filter:blur(10px);border:1px solid rgba(250,247,239,.14);transform:translateY(8px);transition:transform .6s var(--ease)}
+.hs.on .hs-card{transform:none}
+.hs.flip .hs-card{left:auto;right:18px}
+.hs-card b{display:block;font:650 1rem/1.2 var(--f-display);font-variation-settings:"wdth" 90}
+.hs-card span{display:block;font-size:.84rem;line-height:1.4;color:rgba(250,247,239,.72);margin-top:.25rem}
+
+/* story */
+.story{padding-block:clamp(90px,12vw,160px) 0}
+.story-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,56px)}
+.story-frame{position:relative;height:min(78vh,760px);min-height:420px;overflow:hidden;clip-path:inset(0 var(--gut) round 28px);background:#1b2f25}
+#wheat{position:absolute;inset:0;width:100%;height:100%;display:block}
+.story-over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px,6vw,80px) calc(var(--gut) + clamp(20px,4vw,60px));color:var(--milk);background:linear-gradient(180deg,transparent 40%,rgba(10,26,20,.55))}
+.play{display:inline-flex;align-items:center;gap:1rem;text-decoration:none;font:600 1.05rem/1.2 var(--f-body);align-self:flex-start}
+.play-c{width:78px;height:78px;border-radius:50%;background:var(--milk);color:var(--ink);display:grid;place-items:center;transition:transform .5s var(--ease)}
+.play:hover .play-c{transform:scale(1.08)}
+.story-over h3{font-size:clamp(2.4rem,7vw,6.5rem);line-height:.9;font-variation-settings:"wdth" 78;letter-spacing:-.03em;margin-bottom:1.6rem}
+.story-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);padding-block:clamp(40px,6vw,80px) 0}
+.story-body p{color:var(--muted);max-width:52ch}
+.story-body .big{font:500 clamp(1.25rem,2vw,1.6rem)/1.4 var(--f-body);color:var(--ink)}
+.txt-link{display:inline-flex;gap:.5rem;margin-top:1.2rem;font-weight:600;color:var(--teal);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.2rem}
+
+/* trade */
+.trade{padding-block:clamp(90px,12vw,160px)}
+.trade-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,5vw,80px);align-items:start}
+.segments{list-style:none;padding:0;margin:2rem 0 0;border-top:1px solid var(--line)}
+.segments li{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:1rem;padding:1.15rem 0;border-bottom:1px solid var(--line)}
+.segments b{font:650 1.1rem/1.3 var(--f-display);font-variation-settings:"wdth" 90}
+.segments span{color:var(--muted);font-size:.97rem}
+.contact-list{margin-top:2rem;display:grid;gap:.4rem;font-size:.95rem}
+.contact-list .mono{color:var(--teal);font-weight:500;letter-spacing:.04em;user-select:all}
+.form{background:var(--milk);border-radius:26px;padding:clamp(22px,3vw,40px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.1rem;box-shadow:0 30px 60px -40px rgba(16,41,31,.35)}
+.form h3{grid-column:1/-1;font-size:1.7rem;margin-bottom:.3rem}
+.fld{display:flex;flex-direction:column;gap:.4rem;min-width:0}
+.fld.full{grid-column:1/-1}
+.fld label{font:500 .72rem/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:1rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(16,41,31,.25);padding:.55rem 0;border-radius:0;width:100%;transition:border-color .3s}
+.fld textarea{resize:vertical;min-height:96px}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-bottom-color:var(--teal);box-shadow:0 1px 0 var(--teal)}
+.form-foot{grid-column:1/-1;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:.6rem}
+.form-foot button{border:0;cursor:pointer}
+.form-status{font-size:.9rem;color:var(--teal)}
+
+/* footer */
+.foot{background:var(--ink);color:var(--milk);padding-block:clamp(70px,9vw,120px) calc(28px + env(safe-area-inset-bottom,0px));overflow:hidden}
+.foot-cols{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:2rem}
+.foot h4{font:500 .72rem/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 1rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.foot a{text-decoration:none;color:rgba(250,247,239,.8)}
+.foot a:hover{color:#fff}
+.foot-lead{max-width:34ch;color:rgba(250,247,239,.7)}
+.foot-mark{margin-top:clamp(48px,7vw,90px);display:flex;align-items:end;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.foot-mark .en{font:800 clamp(3.6rem,15vw,15rem)/.8 var(--f-display);font-style:italic;font-variation-settings:"wdth" 75;letter-spacing:-.04em;color:var(--teal-2)}
+.foot-mark .ar{font:600 clamp(2rem,7vw,6rem)/1 var(--f-ar);color:rgba(250,247,239,.18)}
+.foot-legal{margin-top:2rem;padding-top:1.4rem;border-top:1px solid rgba(250,247,239,.12);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem;color:rgba(250,247,239,.55)}
+
+/* responsive */
+@media (max-width:1080px){
+  .links{display:none}
+  .brand-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .b-dz{grid-column:span 2;grid-row:span 1;min-height:380px}
+  .b-date{grid-column:span 2}
+  .foot-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:820px){
+  .phone{display:none}
+  .stages{grid-template-columns:1fr}
+  .stage{position:absolute;left:var(--gut);right:var(--gut);bottom:0;opacity:0;pointer-events:none}
+  .stage.is-active{opacity:1}
+  .stages{height:150px}
+  .scroll-cue{display:none}
+  .facts{grid-template-columns:1fr}
+  .fact+.fact{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:1.8rem}
+  .journey-track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .jp{scroll-snap-align:start}
+  .story-body,.trade-grid{grid-template-columns:1fr}
+  .form{grid-template-columns:1fr}
+  .segments li{grid-template-columns:1fr;gap:.2rem}
+  .hs-card{width:170px}
+  .hs-card span{display:none}
+  .tech-copy p.lead{display:none}
+}
+@media (max-width:560px){
+  .nav .btn{display:none}
+  .brand-grid{grid-template-columns:1fr}
+  .b-dz,.b-date{grid-column:auto}
+  .foot-cols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .mq-track{animation:none}
+  .hs-dot::after{animation:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Saas Daari home">
+    <span class="brand-ar" lang="ar">ساس داري</span>
+    <span class="brand-en">SAAS DAARI</span>
+  </a>
+  <nav class="links" aria-label="Main">
+    <a href="#promise">Our story</a>
+    <a href="#tech">Farms &amp; technology</a>
+    <a href="#brands">Products</a>
+    <a href="#trade">Wholesale</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <span class="phone mono">800-SAASDAARI</span>
+    <a class="lang" href="https://saasdaari.com/ar/index.html" lang="ar" aria-label="Arabic version">عربي</a>
+    <a class="btn btn-dz" href="https://shop.daarzood.com/">Shop Daarzood</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO: desert → farmland, driven by scroll -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="hero-stick">
+      <div class="sky" id="sky"></div>
+      <canvas id="terrain" aria-hidden="true"></canvas>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-copy wrap" id="heroCopy">
+        <p class="eyebrow">Abu Dhabi · United Arab Emirates</p>
+        <h1 class="hero-title" id="heroTitle">Innovating agriculture for a sustainable future</h1>
+        <p class="hero-ar" lang="ar" dir="rtl">نبتكر الزراعة من أجل مستقبل مستدام</p>
+        <div class="hero-cta">
+          <a class="btn btn-teal" href="#tech">Explore our farms <span class="arr">→</span></a>
+          <a class="btn btn-ghost" href="https://shop.daarzood.com/">Shop fresh poultry</a>
+        </div>
+      </div>
+      <div class="stages wrap" id="stages">
+        <div class="stage-bar"><i id="stageBar"></i></div>
+        <div class="stage is-active"><span class="stage-k mono">01 · <span lang="ar">الرمل</span></span><strong>Sand</strong><p>Most of the UAE is desert. Growing food here takes technology, water and patience.</p></div>
+        <div class="stage"><span class="stage-k mono">02 · <span lang="ar">الماء</span></span><strong>Water</strong><p>Advanced farming turns sand into productive land, one irrigated field at a time.</p></div>
+        <div class="stage"><span class="stage-k mono">03 · <span lang="ar">الحصاد</span></span><strong>Harvest</strong><p>Poultry, dates and fresh produce, raised on UAE farms for UAE homes and restaurants.</p></div>
+      </div>
+      <div class="scroll-cue mono" aria-hidden="true">Scroll to grow ↓</div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span>100% free-range <i></i></span><span lang="ar">دجاج عضوي طازج <i></i></span><span>Raised in the UAE <i class="dz"></i></span><span>Chilled delivery across all emirates <i></i></span><span lang="ar">تمور فاخرة <i></i></span><span>Same-day in Abu Dhabi <i class="dz"></i></span>
+      <span>100% free-range <i></i></span><span lang="ar">دجاج عضوي طازج <i></i></span><span>Raised in the UAE <i class="dz"></i></span><span>Chilled delivery across all emirates <i></i></span><span lang="ar">تمور فاخرة <i></i></span><span>Same-day in Abu Dhabi <i class="dz"></i></span>
+    </div>
+  </div>
+
+  <!-- PROMISE -->
+  <section class="promise wrap" id="promise">
+    <p class="eyebrow">Why we farm</p>
+    <p class="promise-quote" id="promiseQuote">Our journey began with a clear purpose: to fulfil the nation’s food security vision by producing food that nourishes both body and soul.</p>
+    <p class="promise-src">Saas Daari · Abu Dhabi</p>
+    <div class="facts">
+      <div class="fact"><b><span class="count" data-to="100">100</span><small>%</small></b><span>free-range chicken, raised on our own UAE farms</span></div>
+      <div class="fact"><b>12<small>PM</small></b><span>order by noon for same-day delivery in Abu Dhabi</span></div>
+      <div class="fact"><b><span class="count" data-to="7">7</span></b><span>emirates reached by our chilled delivery</span></div>
+    </div>
+  </section>
+
+  <!-- JOURNEY: horizontal farm-to-table -->
+  <section class="journey" id="journey">
+    <div class="journey-pin" id="journeyPin">
+      <div class="journey-head wrap">
+        <div><p class="eyebrow">From our farms to your table</p><h2>Four steps,<br>one cold chain</h2></div>
+        <p class="lead">We look after every step ourselves, so every family knows where their food comes from.</p>
+      </div>
+      <div class="journey-track" id="track">
+        <article class="jp">
+          <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle class="draw" cx="182" cy="46" r="17"/>
+            <path class="draw" d="M0 124 Q60 96 120 114 T240 104"/>
+            <path class="draw" d="M24 118 V84 M52 114 V80 M80 112 V78 M108 113 V79"/>
+            <path class="draw" d="M18 92 H116 M18 104 H116"/>
+            <path class="draw" d="M150 118 q4 -12 8 0 M170 116 q4 -10 8 0 M196 112 q4 -12 8 0"/>
+          </svg>
+          <div class="jp-top"><span class="jp-n mono">01</span><span class="jp-ar" lang="ar">تربية حرة</span></div>
+          <h3>Raised free-range</h3>
+          <p class="txt">Our birds have room to move naturally on farms here in the UAE.</p>
+          <span class="chip">100% free-range</span>
+        </article>
+        <article class="jp">
+          <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path class="draw" d="M120 150 V36"/>
+            <path class="draw" d="M120 50 q-14 -4 -16 -18 q14 2 16 18 M120 50 q14 -4 16 -18 q-14 2 -16 18 M120 72 q-14 -4 -16 -18 q14 2 16 18 M120 72 q14 -4 16 -18 q-14 2 -16 18 M120 94 q-14 -4 -16 -18 q14 2 16 18 M120 94 q14 -4 16 -18 q-14 2 -16 18"/>
+            <path class="draw" d="M60 128 H180 Q172 152 120 152 Q68 152 60 128 Z"/>
+          </svg>
+          <div class="jp-top"><span class="jp-n mono">02</span><span class="jp-ar" lang="ar">تغذية بعناية</span></div>
+          <h3>Fed with care</h3>
+          <p class="txt">Clean feed and daily attention, because quality starts at the farm.</p>
+          <span class="chip">Raised in the UAE</span>
+        </article>
+        <article class="jp">
+          <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <defs><clipPath id="trayClip"><rect x="52" y="62" width="136" height="62" rx="10"/></clipPath></defs>
+            <rect class="draw" x="44" y="56" width="152" height="74" rx="14"/>
+            <g clip-path="url(#trayClip)" stroke-width="1.2" opacity=".8">
+              <path class="draw" d="M40 60 L110 130 M60 60 L130 130 M80 60 L150 130 M100 60 L170 130 M120 60 L190 130 M140 60 L210 130 M20 60 L90 130"/>
+              <path class="draw" d="M200 60 L130 130 M180 60 L110 130 M160 60 L90 130 M140 60 L70 130 M120 60 L50 130 M100 60 L30 130 M220 60 L150 130"/>
+            </g>
+            <path class="draw" d="M44 142 H196"/>
+          </svg>
+          <div class="jp-top"><span class="jp-n mono">03</span><span class="jp-ar" lang="ar">تحضير وتغليف</span></div>
+          <h3>Prepared &amp; packed</h3>
+          <p class="txt">Cut, trayed and wrapped by hand to keep every piece at its best.</p>
+          <span class="chip">Quality-preserving packaging</span>
+        </article>
+        <article class="jp end">
+          <svg viewBox="0 0 240 160" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path class="draw" d="M28 118 V66 H144 V118 M144 82 H178 L200 104 V118 H144"/>
+            <circle class="draw" cx="66" cy="120" r="12"/><circle class="draw" cx="170" cy="120" r="12"/>
+            <path class="draw" d="M86 76 V108 M72 84 L100 100 M72 100 L100 84"/>
+            <path class="draw" d="M8 140 H232" stroke-dasharray="8 8"/>
+          </svg>
+          <div class="jp-top"><span class="jp-n mono">04</span><span class="jp-ar" lang="ar">توصيل مبرد</span></div>
+          <h3>Chilled to your door</h3>
+          <p class="txt">Temperature-controlled from farm to door, across every emirate.</p>
+          <span class="chip">Same-day in Abu Dhabi · order before 12 PM</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands wrap" id="brands">
+    <div class="sec-head">
+      <div><p class="eyebrow">Our products</p><h2>Brands grown<br>from the same land</h2></div>
+      <p class="lead">One farm family, several tables. Daarzood poultry is available today, with more categories growing on our farms.</p>
+    </div>
+    <div class="brand-grid">
+      <a class="bcard b-dz" href="https://shop.daarzood.com/">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M60 12 C85 12 102 52 102 75 C102 98 83 110 60 110 C37 110 18 98 18 75 C18 52 35 12 60 12Z"/><path d="M60 24 C79 24 92 56 92 75 C92 93 78 100 60 100" opacity=".5"/></svg>
+        <span class="tag">Available now</span>
+        <h3>Daarzood<br>Organic Poultry</h3>
+        <p class="b-ar" lang="ar">دجاج عضوي طازج</p>
+        <p>Free-range whole chicken, cuts, eggs and value boxes, delivered fresh and chilled.</p>
+        <span class="bcard-cta">Shop Daarzood <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="bcard b-date" href="#trade">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><ellipse cx="46" cy="64" rx="15" ry="30" transform="rotate(-18 46 64)"/><ellipse cx="74" cy="60" rx="15" ry="30" transform="rotate(14 74 60)"/><path d="M52 30 Q60 14 70 28"/></svg>
+        <span class="tag">Wholesale enquiries</span>
+        <h3>Premium Dates</h3>
+        <p class="b-ar" lang="ar">تمور فاخرة</p>
+        <p>Carefully selected UAE dates for gifting, hospitality and retail.</p>
+      </a>
+      <div class="bcard b-dairy">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M48 14 H72 V30 L84 46 V104 Q84 110 78 110 H42 Q36 110 36 104 V46 L48 30Z"/><path d="M36 66 H84"/></svg>
+        <span class="tag">Growing next</span>
+        <h3>Dairy</h3>
+        <p class="b-ar" lang="ar">ألبان</p>
+      </div>
+      <div class="bcard b-prod">
+        <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M18 102 C18 52 58 20 104 18 C104 68 70 102 18 102Z"/><path d="M18 102 L92 30"/></svg>
+        <span class="tag">Growing next</span>
+        <h3>Fruits &amp; Vegetables</h3>
+        <p class="b-ar" lang="ar">فواكه وخضروات</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH: 3D shade-net house -->
+  <section class="tech" id="tech">
+    <div class="tech-stick">
+      <canvas id="house" aria-hidden="true"></canvas>
+      <div class="tech-copy wrap">
+        <p class="eyebrow">Farms &amp; technology</p>
+        <h2>Shade-net houses built for the Gulf sun</h2>
+        <p class="lead">Our growing houses soften the desert sun, keep pests out and put water straight at the root, so food can grow close to the people who eat it.</p>
+        <ol class="tsteps" id="tsteps">
+          <li class="on">Frame</li><li>Shade net</li><li>Water</li><li>Growth</li>
+        </ol>
+      </div>
+      <div class="hs" data-p="0.12" data-pos="-6,4.2,14"><i class="hs-dot"></i><div class="hs-card"><b>Steel frame</b><span>Galvanised arches that stand up to desert wind and heat.</span></div></div>
+      <div class="hs" data-p="0.46" data-pos="1.5,6.1,4"><i class="hs-dot"></i><div class="hs-card"><b>Shade &amp; insect-proof net</b><span>Filters harsh sunlight and keeps insects out without sprays.</span></div></div>
+      <div class="hs flip" data-p="0.62" data-pos="3,0.35,12"><i class="hs-dot"></i><div class="hs-card"><b>Drip irrigation</b><span>Water goes straight to the root zone, with less lost to evaporation.</span></div></div>
+      <div class="hs" data-p="0.8" data-pos="-3,1,-6"><i class="hs-dot"></i><div class="hs-card"><b>Protected growth</b><span>Crops grow through seasons that open desert fields can’t.</span></div></div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="story-head wrap">
+      <div><p class="eyebrow">Our story</p><h2>Food that nourishes<br>body and soul</h2></div>
+    </div>
+    <div class="story-frame" id="storyFrame">
+      <canvas id="wheat" aria-hidden="true"></canvas>
+      <div class="story-over">
+        <h3>Feel-good<br>farming</h3>
+        <a class="play" href="https://www.youtube.com/channel/UChPoxZiOwcJ1MN_rvwUTWwQ/videos">
+          <span class="play-c"><svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true"><path d="M2 2 L20 12 L2 22Z" fill="currentColor"/></svg></span>
+          Watch our story on YouTube
+        </a>
+      </div>
+    </div>
+    <div class="story-body wrap">
+      <p class="big">Over the years, Saas Daari has grown into a trusted name for honest farm-to-table food, raised with love and care and farmed from local sources.</p>
+      <div>
+        <p>Every day we deliver the abundance of our farms to homes and restaurants across the UAE. Our goal is simple: every family should know where their food comes from.</p>
+        <a class="txt-link" href="https://saasdaari.com/our-story.html">Read our full story →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE + CONTACT -->
+  <section class="trade wrap" id="trade">
+    <div class="trade-grid">
+      <div>
+        <p class="eyebrow">Wholesale &amp; trading</p>
+        <h2>Supplying UAE kitchens</h2>
+        <ul class="segments">
+          <li><b>Hotels &amp; restaurants</b><span>Consistent cuts and weights on a delivery schedule that suits your kitchen.</span></li>
+          <li><b>Retail &amp; hypermarkets</b><span>Branded Daarzood products, packed and ready for the chiller.</span></li>
+          <li><b>Catering &amp; institutions</b><span>Volume supply of poultry, eggs and dates with a cold chain you can rely on.</span></li>
+        </ul>
+        <div class="contact-list">
+          <div>Call <span class="mono">800-SAASDAARI</span></div>
+          <div>Email <span class="mono">info@daarzood.com</span></div>
+          <div>Abu Dhabi, United Arab Emirates</div>
+        </div>
+      </div>
+      <form class="form" id="contact" novalidate>
+        <h3>Send an enquiry</h3>
+        <div class="fld"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="fld"><label for="f-co">Company</label><input id="f-co" name="company" autocomplete="organization"></div>
+        <div class="fld"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld"><label for="f-tel">Phone</label><input id="f-tel" name="phone" type="tel" autocomplete="tel" placeholder="+971"></div>
+        <div class="fld full"><label for="f-int">I’m interested in</label>
+          <select id="f-int" name="interest"><option>Wholesale poultry &amp; eggs</option><option>Premium dates</option><option>Home delivery</option><option>Partnership</option><option>Something else</option></select></div>
+        <div class="fld full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Volumes, delivery location, timing…"></textarea></div>
+        <div class="form-foot"><button class="btn btn-teal" type="submit">Send enquiry <span class="arr">→</span></button><span class="form-status" id="formStatus" role="status"></span></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-cols">
+      <div><p class="foot-lead">Saas Daari Poultry Trading &amp; Advanced Technology. Innovating agriculture for a sustainable future, from Abu Dhabi.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="#promise">Our story</a></li><li><a href="#tech">Farms &amp; technology</a></li><li><a href="#brands">Products</a></li><li><a href="#trade">Wholesale</a></li></ul></div>
+      <div><h4>Daarzood shop</h4><ul><li><a href="https://shop.daarzood.com/collections/trending-products">Best sellers</a></li><li><a href="https://shop.daarzood.com/collections/organic-whole-chicken">Whole chicken</a></li><li><a href="https://shop.daarzood.com/collections/organic-box">Value boxes</a></li><li><a href="https://shop.daarzood.com/collections/eggs">Eggs</a></li></ul></div>
+      <div><h4>Follow</h4><ul><li><a href="https://www.instagram.com/daarzood/">Instagram</a></li><li><a href="https://www.facebook.com/daarzood">Facebook</a></li><li><a href="https://www.youtube.com/channel/UChPoxZiOwcJ1MN_rvwUTWwQ/videos">YouTube</a></li><li><a href="https://vt.tiktok.com/ZSRLFXaej/">TikTok</a></li></ul></div>
+    </div>
+    <div class="foot-mark"><span class="en">SAAS DAARI</span><span class="ar" lang="ar">ساس داري</span></div>
+    <div class="foot-legal"><span>© 2026 Saas Daari. All rights reserved.</span><span><a href="https://saasdaari.com/privacy-policy.html">Privacy</a> · <a href="https://saasdaari.com/terms-conditions.html">Terms</a></span><span>Concept design by Syed Haris</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+"use strict";
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = matchMedia('(max-width: 820px)').matches;
+const hasGSAP = !!(window.gsap && window.ScrollTrigger);
+const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const smooth=(a,b,v)=>{const t=clamp((v-a)/(b-a),0,1);return t*t*(3-2*t);};
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+
+/* ---------- scroll progress helpers (work with or without GSAP) ---------- */
+function sectionProgress(el){
+  const r=el.getBoundingClientRect(); const total=r.height-innerHeight;
+  return total<=0?0:clamp(-r.top/total,0,1);
+}
+function inView(el){const r=el.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight;}
+
+/* ---------- smooth scroll ---------- */
+let lenis=null;
+if(hasGSAP){ gsap.registerPlugin(ScrollTrigger); }
+if(!reduce && window.Lenis && hasGSAP){
+  lenis=new Lenis({lerp:.085,smoothWheel:true});
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+}
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href'); const t=id.length>1&&document.querySelector(id); if(!t)return;
+  e.preventDefault(); if(lenis)lenis.scrollTo(t,{duration:1.6}); else t.scrollIntoView({behavior:reduce?'auto':'smooth'});
+}));
+
+/* ---------- nav state ---------- */
+const nav=document.getElementById('nav');
+function navState(){ nav.classList.toggle('solid', scrollY > document.getElementById('top').offsetHeight - innerHeight*1.05); }
+addEventListener('scroll',navState,{passive:true}); navState();
+
+/* ---------- split words ---------- */
+function split(el){
+  const words=el.textContent.trim().split(/\s+/);
+  el.innerHTML=words.map(w=>'<span class="w"><span class="wi">'+w+'</span></span>').join(' ');
+  return el.querySelectorAll('.wi');
+}
+
+/* =====================================================================
+   HERO TERRAIN — dunes flatten, pivot fields grow, camera lifts
+   ===================================================================== */
+const NOISE=`
+float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);
+ return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);}
+float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*noise(p);p*=2.03;a*=.5;}return v;}
+float dunes(vec2 p){float n=fbm(p*.035);float r=1.-abs(sin(p.x*.055+p.y*.022+n*4.));return r*r*4.6+n*3.6;}
+`;
+const TV=`uniform float uP;varying vec3 vW;varying float vH;varying vec3 vN;${NOISE}
+float height(vec2 p){float fl=smoothstep(.12,.6,uP);float h=mix(dunes(p),fbm(p*.05)*1.1,fl);
+ return mix(h,dunes(p)*1.5,smoothstep(70.,115.,length(p)));}
+void main(){vec3 pos=position;vec2 p=pos.xz;
+ float h=height(p);float e=.7;
+ vN=normalize(vec3(h-height(p+vec2(e,0.)),e,h-height(p+vec2(0.,e))));
+ pos.y=h;vH=h;vec4 w=modelMatrix*vec4(pos,1.);vW=w.xyz;
+ gl_Position=projectionMatrix*viewMatrix*w;}`;
+const TF=`uniform float uP;uniform float uT;uniform vec3 uFog;uniform vec3 uCam;varying vec3 vW;varying float vH;varying vec3 vN;${NOISE}
+void main(){
+ vec3 N=normalize(vN);
+ vec3 L=normalize(vec3(-.55,.55,-.35));
+ float dif=clamp(dot(N,L),0.,1.);
+ vec2 p=vW.xz;float g=noise(p*.9);float gl=fbm(p*.08);
+ vec3 col=mix(vec3(.80,.63,.41),vec3(.95,.84,.64),clamp(vH*.11+g*.2,0.,1.));
+ float zone=1.-smoothstep(62.,100.,length(p));
+ float wet=smoothstep(.2,.6,uP);
+ col=mix(col,vec3(.56,.44,.30)*(.9+g*.2),wet*.5*zone);
+ float S=30.;vec2 cell=floor(p/S);vec2 lc=p-(cell+.5)*S;
+ float r1=hash(cell),r2=hash(cell+7.3);
+ float R=S*.46;float d=length(lc);
+ float st=.28+r1*.38;float grow=smoothstep(st,st+.18,uP);
+ float piv=step(.3,r2);
+ float inC=(1.-smoothstep(R*grow-.5,R*grow,d))*piv;
+ vec2 q=abs(lc);float ext=S*.42*grow;
+ float inR=(1.-piv)*(1.-smoothstep(ext-.4,ext,max(q.x,q.y)));
+ float field=max(inC,inR)*zone*step(.001,grow);
+ float rowC=.5+.5*sin(d*2.4);float rowR=.5+.5*sin(lc.x*2.4);
+ float rows=mix(rowR,rowC,piv);
+ vec3 cA=vec3(.13,.33,.16),cB=vec3(.44,.63,.25);
+ vec3 crop=mix(cA,cB,rows*.55+gl*.45);
+ crop=mix(crop,vec3(.78,.66,.33),step(.82,r1)*.85);
+ col=mix(col,crop,field);
+ float ang=uT*.12+r1*6.283;vec2 dir=vec2(cos(ang),sin(ang));
+ float al=dot(lc,dir);float pe=abs(dot(lc,vec2(-dir.y,dir.x)));
+ float arm=(1.-smoothstep(.1,.32,pe))*step(0.,al)*step(al,R)*piv*zone*step(.98,grow);
+ col=mix(col,vec3(.9,.92,.93),arm);
+ col*=.5+.62*dif;
+ float dist=length(vW-uCam);
+ col=mix(col,uFog,smoothstep(45.,175.,dist));
+ gl_FragColor=vec4(col,1.);}`;
+
+function makeRenderer(canvas){
+  try{
+    const r=new THREE.WebGLRenderer({canvas,antialias:!isMobile,alpha:true,powerPreference:'high-performance'});
+    r.setPixelRatio(Math.min(devicePixelRatio||1,isMobile?1.5:1.75));
+    return r;
+  }catch(e){return null;}
+}
+
+function initTerrain(){
+  const canvas=document.getElementById('terrain');
+  const renderer=makeRenderer(canvas); if(!renderer)return null;
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(42,1,.5,420);
+  const seg=isMobile?150:230;
+  const geo=new THREE.PlaneGeometry(260,260,seg,seg); geo.rotateX(-Math.PI/2);
+  const U={uP:{value:0},uT:{value:0},uFog:{value:new THREE.Color('#E9CFA0')},uCam:{value:new THREE.Vector3()}};
+  const mat=new THREE.ShaderMaterial({uniforms:U,vertexShader:TV,fragmentShader:TF});
+    const mesh=new THREE.Mesh(geo,mat); mesh.frustumCulled=false; scene.add(mesh);
+  // drifting sand dust
+  const n=isMobile?350:700, pos=new Float32Array(n*3);
+  for(let i=0;i<n;i++){pos[i*3]=(Math.random()-.5)*120;pos[i*3+1]=Math.random()*18+2;pos[i*3+2]=(Math.random()-.5)*110;}
+  const dg=new THREE.BufferGeometry(); dg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  const dm=new THREE.PointsMaterial({color:0xFFF3DC,size:.22,transparent:true,opacity:.7,depthWrite:false});
+  const dust=new THREE.Points(dg,dm); scene.add(dust);
+
+  const fogA=new THREE.Color('#E9CFA0'), fogB=new THREE.Color('#D3DFCB');
+  const topA=new THREE.Color('#EBD7B0'), topB=new THREE.Color('#9EC2BE');
+  const tmp=new THREE.Color(), look=new THREE.Vector3();
+  const sky=document.getElementById('sky');
+  function resize(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=w<h?58:42;camera.updateProjectionMatrix();}
+  resize(); addEventListener('resize',resize);
+  return {render(p,t,mx,my){
+    U.uP.value=p; U.uT.value=t;
+    const e=ease(p);
+    const ang=-.38*e+mx*.035;
+    const r=lerp(60,64,e), y=lerp(13,78,e)+my*1.2;
+    camera.position.set(Math.sin(ang)*r,y,Math.cos(ang)*r);
+    look.set(0,lerp(5,-3,e),lerp(-10,-6,e)); camera.lookAt(look);
+    U.uCam.value.copy(camera.position);
+    U.uFog.value.copy(fogA).lerp(fogB,smooth(.2,.8,p));
+    sky.style.setProperty('--sky-bot','#'+U.uFog.value.getHexString());
+    sky.style.setProperty('--sky-top','#'+tmp.copy(topA).lerp(topB,smooth(.2,.8,p)).getHexString());
+    dm.opacity=.7*(1-smooth(.1,.45,p));
+    const a=dg.attributes.position.array;
+    for(let i=0;i<n;i++){a[i*3]+=.05+((i%7)*.006);if(a[i*3]>60)a[i*3]=-60;}
+    dg.attributes.position.needsUpdate=true;
+    renderer.render(scene,camera);
+  }};
+}
+
+/* =====================================================================
+   SHADE-NET HOUSE — assembles as you scroll
+   ===================================================================== */
+function initHouse(){
+  const canvas=document.getElementById('house');
+  const renderer=makeRenderer(canvas); if(!renderer)return null;
+  const scene=new THREE.Scene();
+  const BG=new THREE.Color('#10291F');
+  scene.background=BG; scene.fog=new THREE.Fog(BG,34,85);
+  const camera=new THREE.PerspectiveCamera(40,1,.1,200);
+  scene.add(new THREE.HemisphereLight(0xDCE8D6,0x2A2216,.55));
+  const sun=new THREE.DirectionalLight(0xFFE2B0,.75); sun.position.set(14,22,10); scene.add(sun);
+
+  const ground=new THREE.Mesh(new THREE.CircleGeometry(80,64),new THREE.MeshStandardMaterial({color:0x8A7048,roughness:1}));
+  ground.rotation.x=-Math.PI/2; scene.add(ground);
+
+  const R=6, LEN=40, steel=new THREE.MeshStandardMaterial({color:0xD3DAD8,metalness:.65,roughness:.32});
+  const arches=[], archGeo=new THREE.TorusGeometry(R,.09,8,56,Math.PI);
+  for(let i=0;i<=10;i++){const m=new THREE.Mesh(archGeo,steel);m.userData.z=-LEN/2+i*4;m.position.z=m.userData.z;scene.add(m);arches.push(m);}
+  const purlins=[], pg=new THREE.CylinderGeometry(.05,.05,LEN,6); pg.rotateX(Math.PI/2);
+  [0,30,60,90,120,150,180].forEach(deg=>{const a=deg*Math.PI/180;const m=new THREE.Mesh(pg,steel);m.position.set(Math.cos(a)*R,Math.sin(a)*R,0);scene.add(m);purlins.push(m);});
+
+  const netGeo=new THREE.CylinderGeometry(R+.06,R+.06,LEN,56,22,true,Math.PI/2,Math.PI); netGeo.rotateX(Math.PI/2);
+  const netW=new THREE.Mesh(netGeo,new THREE.MeshBasicMaterial({color:0x2F6B53,wireframe:true,transparent:true,opacity:.55}));
+  const netS=new THREE.Mesh(netGeo,new THREE.MeshStandardMaterial({color:0x173F31,transparent:true,opacity:.28,side:THREE.DoubleSide,depthWrite:false}));
+  netS.renderOrder=2; scene.add(netW); scene.add(netS);
+
+  const rowsX=[-3,0,3], beds=[], drips=[];
+  const bedMat=new THREE.MeshStandardMaterial({color:0x6B4A2E,roughness:1});
+  const dripMat=new THREE.MeshStandardMaterial({color:0x3FA7C9,emissive:0x0E4A5C,roughness:.4});
+  rowsX.forEach(x=>{
+    const b=new THREE.Mesh(new THREE.BoxGeometry(1.5,.24,LEN-2),bedMat);b.position.set(x,.12,0);scene.add(b);beds.push(b);
+    const d=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,LEN-2,6).rotateX(Math.PI/2),dripMat);d.position.set(x,.3,0);scene.add(d);drips.push(d);
+  });
+  const per=37, count=per*rowsX.length;
+  const plantMat=new THREE.MeshStandardMaterial({color:0x5E9E3E,roughness:.8,flatShading:true});
+  const plants=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(.55,0),plantMat,count);
+  const pdata=[]; rowsX.forEach(x=>{for(let j=0;j<per;j++){pdata.push({x:x+(Math.random()-.5)*.25,z:-18+j,s:.7+Math.random()*.6,d:(j/per)*.5+Math.random()*.15});}});
+  scene.add(plants);
+  const dummy=new THREE.Object3D();
+
+  const hs=[...document.querySelectorAll('.hs')].map(el=>({el,p:+el.dataset.p,v:new THREE.Vector3(...el.dataset.pos.split(',').map(Number))}));
+  const steps=[...document.querySelectorAll('#tsteps li')];
+  let W=1,H=1;
+  function resize(){W=canvas.clientWidth;H=canvas.clientHeight;renderer.setSize(W,H,false);camera.aspect=W/H;camera.fov=W<H?62:40;camera.updateProjectionMatrix();}
+  resize(); addEventListener('resize',resize);
+  const v=new THREE.Vector3();
+  return {render(p,t,mx,my){
+    arches.forEach((m,i)=>{const k=smooth(i*.022,i*.022+.1,p);m.position.y=(1-k)*14;m.scale.setScalar(.001+k);});
+    const kp=smooth(.2,.36,p); purlins.forEach(m=>{m.scale.z=.001+kp;m.visible=kp>0;});
+    const kn=smooth(.36,.56,p); netW.scale.z=netS.scale.z=.001+kn; netW.visible=netS.visible=kn>0;
+    netW.material.opacity=.55*kn; netS.material.opacity=.28*kn;
+    const kb=smooth(.5,.64,p); beds.forEach(b=>b.scale.z=.001+kb);
+    const kd=smooth(.56,.7,p); drips.forEach(d=>{d.scale.z=.001+kd;d.visible=kd>0;});
+    pdata.forEach((q,i)=>{const k=smooth(.64+q.d*.5,.74+q.d*.5,p);const sw=Math.sin(t*1.4+q.z*.5)*.04;
+      dummy.position.set(q.x,.3+.4*q.s*k,q.z);dummy.rotation.set(sw,q.z,sw);dummy.scale.set(q.s*k+.0001,q.s*k*1.3+.0001,q.s*k+.0001);dummy.updateMatrix();plants.setMatrixAt(i,dummy.matrix);});
+    plants.instanceMatrix.needsUpdate=true;
+    const ang=lerp(.95,-.6,ease(p))+mx*.05, rad=lerp(30,25,p);
+    camera.position.set(Math.sin(ang)*rad,lerp(16,8.5,p)+my*.8,Math.cos(ang)*rad);
+    camera.lookAt(0,lerp(3,2,p),0);
+    renderer.render(scene,camera);
+    camera.updateMatrixWorld();
+    hs.forEach(h=>{v.copy(h.v).project(camera);const x=(v.x*.5+.5)*W,y=(-v.y*.5+.5)*H;
+      h.el.style.transform='translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px)';h.el.classList.toggle('on',p>=h.p&&v.z<1);});
+    const si=p<.34?0:p<.56?1:p<.72?2:3; steps.forEach((li,i)=>li.classList.toggle('on',i<=si));
+  }};
+}
+
+/* =====================================================================
+   WHEAT — story poster, 2D canvas
+   ===================================================================== */
+function initWheat(){
+  const c=document.getElementById('wheat'),x=c.getContext('2d'); let W,H,st=[];
+  function resize(){const dpr=Math.min(devicePixelRatio||1,2);W=c.clientWidth;H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.round(W/7);st=[];for(let i=0;i<n;i++){const depth=Math.random();st.push({x:Math.random()*W,h:H*(.28+depth*.5),d:depth,ph:Math.random()*6.28});}st.sort((a,b)=>a.d-b.d);}
+  resize(); addEventListener('resize',resize);
+  return {render(t){
+    const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#15372C');g.addColorStop(.55,'#3E5A3A');g.addColorStop(.8,'#C9964F');g.addColorStop(1,'#E0B56C');
+    x.fillStyle=g;x.fillRect(0,0,W,H);
+    const sg=x.createRadialGradient(W*.72,H*.78,0,W*.72,H*.78,H*.6);sg.addColorStop(0,'rgba(255,226,160,.75)');sg.addColorStop(1,'rgba(255,226,160,0)');x.fillStyle=sg;x.fillRect(0,0,W,H);
+    for(const s of st){
+      const bend=Math.sin(t*1.1+s.x*.006+s.ph*.3)*18*(.4+s.d)+Math.sin(t*2.3+s.ph)*3;
+      const bx=s.x,by=H+4,tx=bx+bend,ty=H-s.h;
+      const l=18+s.d*52;x.strokeStyle='rgb('+(90+s.d*120|0)+','+(80+s.d*70|0)+','+(40+s.d*20|0)+')';
+      x.lineWidth=.6+s.d*1.4;x.beginPath();x.moveTo(bx,by);x.quadraticCurveTo(bx,ty+s.h*.4,tx,ty);x.stroke();
+      x.fillStyle='rgb('+(150+s.d*90|0)+','+(115+s.d*60|0)+','+(50+s.d*20|0)+')';
+      for(let k=0;k<6;k++){const f=k/6,gx=tx+bend*.02*k,gy=ty+f*s.h*.12;x.beginPath();x.ellipse(gx-2-s.d*1.5,gy,1.2+s.d*1.8,3+s.d*3,-.5,0,6.283);x.ellipse(gx+2+s.d*1.5,gy,1.2+s.d*1.8,3+s.d*3,.5,0,6.283);x.fill();}
+    }
+  }};
+}
+
+/* ---------- boot scenes ---------- */
+const gl = window.THREE ? {terrain:initTerrain(),house:initHouse()} : {};
+if(!gl.terrain) document.documentElement.classList.add('no-gl');
+const wheat=initWheat();
+const heroEl=document.getElementById('top'), techEl=document.getElementById('tech'), frame=document.getElementById('storyFrame');
+let hp=0,tp=0,mx=0,my=0,tmx=0,tmy=0;
+addEventListener('pointermove',e=>{tmx=e.clientX/innerWidth*2-1;tmy=e.clientY/innerHeight*2-1;},{passive:true});
+const stages=[...document.querySelectorAll('.stage')], bar=document.getElementById('stageBar'), heroCopy=document.getElementById('heroCopy');
+let last=performance.now(), T=0;
+function frameLoop(now){
+  const dt=Math.min(.05,(now-last)/1000); last=now; T+=reduce?0:dt;
+  mx=lerp(mx,tmx,.05); my=lerp(my,tmy,.05);
+  if(inView(heroEl)){
+    const target=sectionProgress(heroEl); hp=reduce?target:lerp(hp,target,.12);
+    if(gl.terrain) gl.terrain.render(hp,T,mx,my);
+    const si=hp<.34?0:hp<.67?1:2; stages.forEach((s,i)=>s.classList.toggle('is-active',i===si));
+    bar.style.transform='scaleX('+hp.toFixed(4)+')';
+    const fade=smooth(.18,.4,hp); heroCopy.style.opacity=(1-fade).toFixed(3); heroCopy.style.transform='translateY('+(-fade*60).toFixed(1)+'px)';
+    heroCopy.style.pointerEvents=fade>.8?'none':'';
+  }
+  if(gl.house && inView(techEl)){const target=sectionProgress(techEl); tp=reduce?target:lerp(tp,target,.1); gl.house.render(tp,T,mx,my);}
+  if(inView(frame)) wheat.render(T);
+  requestAnimationFrame(frameLoop);
+}
+requestAnimationFrame(frameLoop);
+
+/* =====================================================================
+   GSAP choreography
+   ===================================================================== */
+const heroWords=split(document.getElementById('heroTitle'));
+const promiseWords=split(document.getElementById('promiseQuote'));
+if(hasGSAP && !reduce){
+  gsap.from(heroWords,{yPercent:115,duration:1.25,ease:'expo.out',stagger:.07,delay:.15});
+  gsap.from('.hero-ar,.hero-cta,.hero-copy .eyebrow',{y:24,opacity:0,duration:1,ease:'power3.out',stagger:.1,delay:.7});
+
+  gsap.fromTo(promiseWords,{color:'#B7AE98'},{color:'#10291F',stagger:.05,ease:'none',
+    scrollTrigger:{trigger:'#promiseQuote',start:'top 80%',end:'bottom 45%',scrub:true}});
+
+  document.querySelectorAll('.count').forEach(el=>{const to=+el.dataset.to,o={v:0};
+    gsap.to(o,{v:to,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%'},onUpdate:()=>el.textContent=Math.round(o.v)});});
+
+  const mm=gsap.matchMedia();
+  mm.add('(min-width: 821px)',()=>{
+    const track=document.getElementById('track');
+    const dist=()=>Math.max(0,track.scrollWidth-innerWidth);
+    const tween=gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#journeyPin',pin:true,scrub:.8,start:'top top',end:()=>'+='+dist(),invalidateOnRefresh:true,anticipatePin:1}});
+    document.querySelectorAll('.jp').forEach(card=>{
+      const paths=card.querySelectorAll('.draw');
+      paths.forEach(pth=>{const L=(pth.getTotalLength?pth.getTotalLength():300)+2;pth.style.strokeDasharray=pth.getAttribute('stroke-dasharray')||L;if(!pth.getAttribute('stroke-dasharray')){pth.style.strokeDashoffset=L;}});
+      gsap.to([...paths].filter(p=>!p.getAttribute('stroke-dasharray')),{strokeDashoffset:0,duration:1.6,ease:'power2.inOut',stagger:.12,
+        scrollTrigger:{trigger:card,containerAnimation:tween,start:'left 100%'}});
+    });
+  });
+
+  gsap.from('.bcard',{y:70,rotateX:-8,duration:1.1,ease:'power3.out',stagger:.1,scrollTrigger:{trigger:'.brand-grid',start:'top 82%'}});
+
+  gsap.fromTo('#storyFrame',{clipPath:'inset(0% '+(isMobile?'16px':'var(--gut)')+' round 28px)'},{clipPath:'inset(0% 0px round 0px)',ease:'none',
+    scrollTrigger:{trigger:'#storyFrame',start:'top 85%',end:'top 15%',scrub:true}});
+  gsap.from('.story-over h3',{yPercent:30,opacity:.2,ease:'none',scrollTrigger:{trigger:'#storyFrame',start:'top 70%',end:'top 20%',scrub:true}});
+
+  gsap.from('.foot-mark .en',{xPercent:-8,ease:'none',scrollTrigger:{trigger:'.foot',start:'top bottom',end:'bottom bottom',scrub:true}});
+}
+
+/* ---------- tilt on brand cards ---------- */
+if(!reduce && matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.bcard').forEach(c=>{
+    c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+      c.style.transform='rotateY('+(px*8).toFixed(2)+'deg) rotateX('+(-py*8).toFixed(2)+'deg) translateZ(0)';});
+    c.addEventListener('pointerleave',()=>{c.style.transition='transform .7s cubic-bezier(.2,.7,.1,1)';c.style.transform='';setTimeout(()=>c.style.transition='',700);});
+  });
+}
+
+/* ---------- form (preview only) ---------- */
+document.getElementById('contact').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target, s=document.getElementById('formStatus');
+  const name=f.elements.name.value.trim(), mail=f.elements.email.value.trim();
+  if(!name||!/^\S+@\S+\.\S+$/.test(mail)){s.style.color='#A0421F';s.textContent='Add your name and a valid email so our team can reply.';return;}
+  s.style.color='';s.textContent='Thanks, '+name.split(' ')[0]+'. On the live site this goes straight to the Saas Daari sales team.';
+});
+
+if(hasGSAP) addEventListener('load',()=>ScrollTrigger.refresh());
+})();
+</script>
+
+</body></html>
